@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sobre Nosotros | Centro Ginecológico San Bernardino</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">GinecoSalud SB</a>
+            <div class="menu-icon" id="menuIcon">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Nuestros Servicios</a></li>
+                <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ENCABEZADO DE LA PÁGINA -->
+    <div class="sobre-header">
+        <h1>Sobre Nosotros</h1>
+        <p>Un equipo de especialistas comprometidos con tu salud integral</p>
+    </div>
+
+    <!-- SOCIAS (INFORMACIÓN DETALLADA) -->
+    <section class="section">
+        <div class="container">
+
+            <!-- SOCIA 1: VICTORIA PRADA -->
+            <div class="socia-detalle">
+                <img src="https://placehold.co/300x300/FFE0E1/D81B60?text=Dra.+Victoria" alt="Dra. Victoria Prada">
+                <div>
+                    <h3>Dra. Victoria Prada</h3>
+                    <div class="especialidad">Ginecóloga - Obstetra | Piso Pélvico | Ginecología Estética</div>
+                    <div class="descripcion">
+                        <p>Médico egresada de la Universidad Central de Venezuela (UCV). Con más de [X] años de experiencia en el área de ginecología y obstetricia.</p>
+                        <p>Especialista en el tratamiento de piso pélvico, abordando condiciones como incontinencia urinaria y prolapsos. También ofrece procedimientos de ginecología estética para el bienestar íntimo de la mujer.</p>
+                        <p>Miembro activo de la Sociedad de Obstetricia y Ginecología de Venezuela (SOGV).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIA 2: (NOMBRE POR CONFIRMAR) -->
+            <div class="socia-detalle">
+                <img src="https://placehold.co/300x300/FFE0E1/D81B60?text=Dra.+Nombre" alt="Dra. [Nombre]">
+                <div>
+                    <h3>Dra. [Nombre por confirmar]</h3>
+                    <div class="especialidad">Ginecóloga - Obstetra | [Especialidad]</div>
+                    <div class="descripcion">
+                        <p>Próximamente más información sobre su trayectoria y especialidades.</p>
+                        <p>Atención integral en todas las áreas de la ginecología y obstetricia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIA 3: (NOMBRE POR CONFIRMAR) -->
+            <div class="socia-detalle">
+                <img src="https://placehold.co/300x300/FFE0E1/D81B60?text=Dr.+Nombre" alt="Dr. [Nombre]">
+                <div>
+                    <h3>Dr. [Nombre por confirmar]</h3>
+                    <div class="especialidad">Ginecólogo - Obstetra | [Especialidad]</div>
+                    <div class="descripcion">
+                        <p>Próximamente más información sobre su trayectoria y especialidades.</p>
+                        <p>Comprometido con la atención personalizada y el seguimiento cercano.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OBJETIVOS DEL CENTRO -->
+    <section class="section" style="background: #FFF5F5;">
+        <div class="container">
+            <h2>Nuestros Objetivos</h2>
+            <div class="objetivos-grid">
+                <div class="objetivo-card">
+                    <h3>🎯 Atención Integral</h3>
+                    <p>Brindar servicios médicos de calidad en todas las etapas de la vida de la mujer.</p>
+                </div>
+                <div class="objetivo-card">
+                    <h3>🌸 Calidez y Confianza</h3>
+                    <p>Crear un ambiente acogedor donde la paciente se sienta escuchada y respetada.</p>
+                </div>
+                <div class="objetivo-card">
+                    <h3>📚 Actualización Constante</h3>
+                    <p>Mantenernos al día en técnicas y tratamientos ginecológicos.</p>
+                </div>
+                <div class="objetivo-card">
+                    <h3>🤝 Trabajo en Equipo</h3>
+                    <p>Colaborar entre especialistas para ofrecer el mejor abordaje a cada caso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTÓN DE VOLVER -->
+    <div class="boton-volver">
+        <a href="index.html" class="btn-secundario">← Volver al inicio</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background: #D81B60; color: white; text-align: center; padding: 2rem;">
+        <p>© 2026 Centro Ginecológico San Bernardino | Desarrollado por <strong>Jesús Pérez</strong></p>
+        <p><a href="#" style="color: white; text-decoration: underline;">Agendar cita por WhatsApp</a></p>
+    </footer>
+
+    <!-- WHATSAPP FLOTANTE (siempre fuera del footer, antes del script) -->
+    <a href="#" class="whatsapp-flotante" target="_blank">
+        <img src="img/whatsapp-icon.png" alt="WhatsApp" style="width: 35px; height: 35px;">
+    </a>
+
+    <script>
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

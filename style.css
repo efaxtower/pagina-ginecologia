@@ -1,0 +1,478 @@
+        /* ===== RESET Y BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2D2D2D;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #D81B60;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #2D2D2D;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #D81B60;
+}
+
+/* Menú hamburguesa (solo para móvil) */
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ===== HERO CON IMAGEN DE FONDO + FILTRO OSCURO ===== */
+.hero {
+    height: 100vh;
+    background-image: url('../img/fondo-clinica.jpg'); /* Cámbialo por tu imagen real */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Filtro oscuro del 50% */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+/* ===== SECCIONES GENERALES ===== */
+.section {
+    padding: 4rem 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    text-align: center;
+    color: #D81B60;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-secundario {
+    display: inline-block;
+}
+
+/* ===== TARJETAS DE TESTIMONIOS (estilo carrusel estático) ===== */
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonio-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.testimonio-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonio-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.testimonio-card .paciente {
+    font-weight: bold;
+    color: #D81B60;
+}
+
+/* ===== PREPARACIÓN + UBICACIÓN (lado a lado) ===== */
+.flex-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.preparacion-card, .ubicacion-card {
+    background: #FFF0F5;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.preparacion-card h3, .ubicacion-card h3 {
+    color: #D81B60;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.preparacion-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.preparacion-card li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.preparacion-card li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+    color: #25D366;
+}
+
+.ubicacion-card p {
+    margin: 0.5rem 0;
+}
+
+.mapa {
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .flex-dos-columnas {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: 2rem 1rem;
+    }
+}
+
+
+
+
+
+/* ===== BOTONES DE NAVEGACIÓN ===== */
+.btn-secundario {
+    background-color: #D81B60;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: #AD1457;
+}
+
+/* ===== PÁGINA SOBRE NOSOTROS ===== */
+.sobre-header {
+    background: #FFF0F5;
+    padding: 120px 2rem 4rem;
+    text-align: center;
+}
+
+.sobre-header h1 {
+    color: #D81B60;
+    font-size: 2.5rem;
+}
+
+/* Tarjeta de socia (más grande y detallada) */
+.socia-detalle {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.socia-detalle img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.socia-detalle h3 {
+    color: #D81B60;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.socia-detalle .especialidad {
+    color: #D81B60;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.socia-detalle .descripcion {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Sección de objetivos */
+.objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.objetivo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.objetivo-card h3 {
+    color: #D81B60;
+    margin-bottom: 1rem;
+}
+
+/* Botón de volver */
+.boton-volver {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .socia-detalle {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .socia-detalle img {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
+
+/* ===== PÁGINA DE SERVICIOS ===== */
+.servicio-detalle {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.servicio-icono {
+    font-size: 3rem;
+    text-align: center;
+    background: #FFF0F5;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.servicio-info h3 {
+    color: #D81B60;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.servicio-info p {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.servicio-info .detalle {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* FAQ específico de servicios */
+.faq-servicios {
+    max-width: 800px;
+    margin: 2rem auto 0;
+}
+
+.faq-question {
+    background: #FFF5F5;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #FFE0E1;
+}
+
+.faq-question h4 {
+    color: #D81B60;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question .faq-respuesta {
+    display: none;
+    margin-top: 0.8rem;
+    color: #555;
+    border-top: 1px solid #FFE0E1;
+    padding-top: 0.8rem;
+}
+
+.faq-question.active .faq-respuesta {
+    display: block;
+}
+
+/* Botón WhatsApp flotante (solo en servicios) */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    z-index: 1000;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive para servicios */
+@media (max-width: 768px) {
+    .servicio-detalle {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .servicio-icono {
+        max-width: 80px;
+        margin: 0 auto;
+    }
+}
