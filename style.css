@@ -65,7 +65,7 @@ body {
 /* ===== HERO CON IMAGEN DE FONDO + FILTRO OSCURO ===== */
 .hero {
     height: 100vh;
-    background-image: url('../img/fondo-clinica.jpg'); /* Cámbialo por tu imagen real */
+    background-image: url('fondo-clinica.jpg'); /* Cámbialo por tu imagen real */
     background-size: cover;
     background-position: center;
     position: relative;
