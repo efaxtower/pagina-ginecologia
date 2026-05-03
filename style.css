@@ -66,12 +66,11 @@ body {
     text-decoration: none;
     color: #2D2D2D;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.2s ease;
 }
 
 .nav-links a:hover { color: #D81B60; }
 
-/* Menú hamburguesa */
 .menu-icon {
     display: none;
     font-size: 1.8rem;
@@ -137,7 +136,7 @@ body {
 }
 
 /* ============================================
-   4. BOTONES (UNIFICADOS)
+   4. BOTONES
    ============================================ */
 .btn-whatsapp {
     background-color: #25D366;
@@ -150,7 +149,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    transition: all 0.3s ease;
+    transition: transform 0.15s ease, background-color 0.2s ease;
     font-size: 1rem;
     line-height: 1;
     border: none;
@@ -160,7 +159,7 @@ body {
 
 .btn-whatsapp:hover {
     background-color: #128C7E;
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .btn-whatsapp .wa-icon {
@@ -179,12 +178,11 @@ body {
     font-weight: bold;
     display: inline-block;
     margin-top: 1rem;
-    transition: background 0.3s;
+    transition: background-color 0.2s ease;
 }
 
 .btn-secundario:hover { background-color: #AD1457; }
 
-/* Botón flotante WhatsApp */
 .whatsapp-flotante {
     position: fixed;
     bottom: 20px;
@@ -198,18 +196,13 @@ body {
     justify-content: center;
     text-decoration: none;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
+    transition: transform 0.2s ease;
     z-index: 1000;
 }
 
-.whatsapp-flotante:hover { transform: scale(1.1); }
+.whatsapp-flotante:hover { transform: scale(1.05); }
+.whatsapp-flotante img { width: 35px; height: 35px; }
 
-.whatsapp-flotante img {
-    width: 35px;
-    height: 35px;
-}
-
-/* Botón dentro de tarjetas de equipo */
 .btn-wa-card {
     background-color: #25D366;
     color: white;
@@ -221,19 +214,37 @@ body {
     cursor: pointer;
     margin-top: 1rem;
     width: 100%;
-    transition: background 0.3s;
+    transition: background-color 0.2s ease;
     font-family: inherit;
 }
 
 .btn-wa-card:hover { background-color: #128C7E; }
 
+.btn-maps {
+    display: inline-block;
+    background-color: #D81B60;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-maps:hover {
+    background-color: #AD1457;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* ============================================
-   5. TARJETAS (GRIDS UNIFICADOS)
+   5. GRIDS Y TARJETAS
    ============================================ */
-/* Grid genérico para tarjetas */
 .testimonios-grid,
 .servicios-grid,
-.objetivos-grid,
 .especialidades-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -241,7 +252,6 @@ body {
     margin-top: 1rem;
 }
 
-/* Grid específico para servicios de colaboradores */
 .servicios-colaboradores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -249,10 +259,26 @@ body {
     margin-top: 1rem;
 }
 
-/* Estilo base para TODAS las tarjetas */
+.objetivos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Estilo base de tarjetas */
 .testimonio-card,
 .servicio-card,
-.objetivo-card,
 .especialidad-card,
 .servicio-colab-card,
 .equipo-card {
@@ -261,21 +287,19 @@ body {
     padding: 1.5rem;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover general */
 .testimonio-card:hover,
 .servicio-card:hover,
-.objetivo-card:hover,
 .especialidad-card:hover,
 .servicio-colab-card:hover,
 .equipo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
-/* Estilos específicos */
+/* Testimonios */
 .testimonio-card p {
     font-style: italic;
     margin-bottom: 1rem;
@@ -287,6 +311,7 @@ body {
     color: #D81B60;
 }
 
+/* Servicios y especialidades */
 .servicio-card h3,
 .especialidad-card h3 {
     color: #D81B60;
@@ -299,14 +324,13 @@ body {
     font-size: 0.9rem;
 }
 
+/* Servicios colaboradores */
 .servicio-colab-card {
     background: #FFF5F5;
     border: 1px solid #FFE0E1;
 }
 
-.servicio-colab-card:hover {
-    border-color: #FFB7C5;
-}
+.servicio-colab-card:hover { border-color: #FFB7C5; }
 
 .servicio-colab-card h3 {
     color: #D81B60;
@@ -330,27 +354,86 @@ body {
     margin-top: 0.5rem;
 }
 
+/* Iconos */
 .especialidad-icono,
 .servicio-icono {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
+/* Imagen circular para servicios */
+.servicio-card .servicio-imagen {
+    font-size: 3rem;
+    background: #FFF0F5;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    transition: transform 0.2s ease;
+}
+
+.servicio-card:hover .servicio-imagen { transform: scale(1.03); }
+
+/* Tarjetas de valores (destacadas) */
+.objetivo-card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 12px rgba(216, 27, 96, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    border: 1px solid rgba(216, 27, 96, 0.1);
+    cursor: default;
+}
+
+.objetivo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.1);
+    border-color: rgba(216, 27, 96, 0.2);
+}
+
+.objetivo-card::before {
+    content: "✦";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    color: rgba(216, 27, 96, 0.08);
+    font-family: monospace;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.objetivo-card:hover::before {
+    color: rgba(216, 27, 96, 0.15);
+}
+
 .objetivo-card h3 {
     color: #D81B60;
     margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: inline-block;
+    background: #FFF0F5;
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+    letter-spacing: 0.5px;
+}
+
+.objetivo-card p {
+    color: #4A4A4A;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* ============================================
-   6. EQUIPO COLABORADOR (TARJETAS DESTACADAS)
+   6. EQUIPO COLABORADOR
    ============================================ */
-.equipo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    justify-content: center;
-}
-
 .equipo-foto {
     width: 130px;
     height: 130px;
@@ -369,11 +452,12 @@ body {
 
 .equipo-card p { color: #555; font-size: 0.9rem; }
 
-/* Tarjeta destacada (Dra. Victoria) */
 .equipo-card-destacado {
     background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F5 100%);
     border: 2px solid #D81B60;
     box-shadow: 0 8px 20px rgba(216, 27, 96, 0.1);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .equipo-card-destacado .equipo-foto {
@@ -381,12 +465,8 @@ body {
     margin-top: 0.5rem;
 }
 
-.equipo-card-destacado h3 {
-    color: #D81B60;
-    font-size: 1.3rem;
-}
+.equipo-card-destacado h3 { font-size: 1.3rem; }
 
-/* Badges */
 .especialidad-badge {
     display: inline-block;
     font-size: 0.7rem;
@@ -409,7 +489,6 @@ body {
     border: 1px solid #FFB7C5;
 }
 
-/* Detalle del especialista */
 .especialista-detalle {
     display: none;
     background: #FFF5F5;
@@ -418,6 +497,7 @@ body {
     margin: 1rem auto 2rem;
     max-width: 800px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    scroll-margin-top: 80px;
 }
 
 .especialista-detalle.active { display: block; }
@@ -436,16 +516,64 @@ body {
     font-size: 2.5rem;
 }
 
+/* Tarjeta de historia y misión */
 .dra-destacada {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    background: white;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
     border-radius: 30px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    border: 1px solid rgba(216, 27, 96, 0.08);
+}
+
+.dra-destacada:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.12);
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE0E1 100%);
+    border: 2px solid #D81B60;
+}
+
+.dra-destacada::before {
+    content: "✦";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: rgba(216, 27, 96, 0.08);
+    font-family: monospace;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.dra-destacada:hover::before {
+    color: rgba(216, 27, 96, 0.2);
+}
+
+.dra-destacada h2 .destacar {
+    color: #D81B60;
+    position: relative;
+    display: inline-block;
+}
+
+.dra-destacada h2 .destacar::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #D81B60;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+    transform-origin: bottom right;
+}
+
+.dra-destacada:hover h2 .destacar::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .dra-foto { flex: 1; min-width: 200px; }
@@ -456,7 +584,7 @@ body {
     object-fit: cover;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .dra-info { flex: 2; }
@@ -477,6 +605,7 @@ body {
 }
 
 .dra-info p { color: #444; line-height: 1.6; margin: 1rem 0; }
+
 .dra-destacados {
     display: flex;
     flex-wrap: wrap;
@@ -530,7 +659,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 1rem;
-    align-items: stretch; /* Fuerza a que ambas columnas tengan la misma altura */
+    align-items: stretch;
 }
 
 .preparacion-card, .ubicacion-card {
@@ -540,7 +669,7 @@ body {
     border-left: 3px solid #D81B60;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ocupa toda la altura de la celda del grid */
+    height: 100%;
 }
 
 .preparacion-card h3, .ubicacion-card h3 {
@@ -552,7 +681,7 @@ body {
 .preparacion-card ul {
     list-style: none;
     padding-left: 0;
-    flex: 1; /* Empuja el bloque de "Primera vez" hacia abajo */
+    flex: 1;
     margin-bottom: 1rem;
 }
 
@@ -569,10 +698,7 @@ body {
     color: #25D366;
 }
 
-/* El bloque "Primera vez con nosotros" se pega al fondo */
-.preparacion-card > div:last-child {
-    margin-top: auto;
-}
+.preparacion-card > div:last-child { margin-top: auto; }
 
 .mapa {
     margin: 1rem 0;
@@ -587,28 +713,8 @@ body {
     display: block;
 }
 
-/* Botón de enlace a Google Maps (estilo botón relleno) */
-.btn-maps {
-    display: inline-block;
-    background-color: #D81B60; /* Fondo rosa institucional */
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 30px;
-    margin-top: 0.5rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.btn-maps:hover {
-    background-color: #AD1457; /* Rosa más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Se levanta ligeramente */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
 /* ============================================
-   9. SERVICIO DETALLE (PÁGINA SERVICIOS)
+   9. SERVICIO DETALLE Y FAQ
    ============================================ */
 .servicio-detalle {
     background: white;
@@ -642,7 +748,6 @@ body {
     margin-top: 0.8rem;
 }
 
-/* FAQ */
 .faq-servicios { max-width: 800px; margin: 2rem auto 0; }
 .faq-question {
     background: #FFF5F5;
@@ -650,7 +755,7 @@ body {
     padding: 1rem 1.5rem;
     border-radius: 12px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.2s ease;
 }
 
 .faq-question:hover { background: #FFE0E1; }
@@ -674,7 +779,7 @@ body {
 .boton-volver { text-align: center; margin: 2rem 0; }
 
 /* ============================================
-   10. RESPONSIVE (MEDIA QUERIES)
+   10. RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
     .menu-icon { display: block; }
@@ -692,6 +797,8 @@ body {
     .btn-whatsapp { padding: 10px 20px; font-size: 0.9rem; }
     .btn-whatsapp .wa-icon { width: 20px; height: 20px; }
     
+    .section { padding: 2rem 1rem; }
+    
     .flex-dos-columnas,
     .socia-detalle,
     .dra-destacada,
@@ -700,10 +807,6 @@ body {
         text-align: center;
     }
     
-    .section { padding: 2rem 1rem; }
-    .servicios-colaboradores-grid { grid-template-columns: 1fr; gap: 0.8rem; }
-    .servicio-colab-card { padding: 0.8rem; }
-    
     .especialidades-grid,
     .testimonios-grid,
     .servicios-grid,
@@ -711,10 +814,27 @@ body {
         grid-template-columns: 1fr;
     }
     
+    .objetivos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .objetivo-card { padding: 1.2rem; }
+    .objetivo-card h3 { font-size: 1.2rem; }
+    
+    .servicios-colaboradores-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .servicio-colab-card { padding: 0.8rem; }
+    
     .equipo-card-destacado { transform: scale(1); }
-    .equipo-card-destacado:hover { transform: translateY(-5px); }
+    .equipo-card-destacado:hover { transform: translateY(-3px); }
     .equipo-foto { width: 100px; height: 100px; }
-    .especialista-detalle { padding: 1.5rem; margin: 1rem; }
+    
+    .especialista-detalle {
+        padding: 1.2rem;
+        margin: 1rem;
+        scroll-margin-top: 70px;
+    }
+    .especialista-detalle .btn-secundario { margin-top: 1rem; }
     
     .socia-detalle img { max-width: 200px; margin: 0 auto; }
     .dra-foto img { max-width: 200px; }
@@ -722,20 +842,140 @@ body {
     .dra-destacados { justify-content: center; }
 }
 
-/* Imagen/icono circular para cada servicio */
-.servicio-card .servicio-imagen {
-    font-size: 3rem;
+/* ============================================
+   11. OPTIMIZACIONES DE RENDIMIENTO
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Estilo para el index (foto a la izquierda) */
+.dra-destacada.dra-index {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+
+.dra-destacada.dra-index .dra-foto {
+    flex: 1;
+    min-width: 200px;
+}
+
+.dra-destacada.dra-index .dra-info {
+    flex: 2;
+    text-align: left;
+}
+
+/* Responsive para móvil en index */
+@media (max-width: 768px) {
+    .dra-destacada.dra-index {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .dra-destacada.dra-index .dra-info {
+        text-align: center;
+    }
+    
+    .dra-destacada.dra-index .dra-destacados {
+        justify-content: center;
+    }
+}
+
+/* ===== ICONOS CIRCULARES PARA TARJETAS DE SERVICIOS ===== */
+.servicio-icono-circular {
+    font-size: 2.5rem;
     background: #FFF0F5;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     margin: 0 auto 1rem;
+    transition: transform 0.2s ease;
 }
 
-.servicio-card:hover .servicio-imagen {
+.testimonio-card:hover .servicio-icono-circular {
     transform: scale(1.05);
 }
 
+/* Iconos pequeños para colaboradores */
+.servicio-icono-pequeno {
+    font-size: 1.8rem;
+    background: #FFF5F5;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+.servicio-colab-card:hover .servicio-icono-pequeno {
+    transform: scale(1.05);
+}
+
+/* ===== SEPARADOR "TAMBIÉN OFRECEMOS" ===== */
+.separador-servicios {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 350px;
+}
+
+.separador-servicios span {
+    background: #FFE0E1;
+    color: #D81B60;
+    padding: 0.5rem 1.8rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(216, 27, 96, 0.1);
+    border: 1px solid rgba(216, 27, 96, 0.2);
+}
+
+/* Versión responsive */
+@media (max-width: 768px) {
+    .separador-servicios span {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.4rem;
+    }
+}
+
+/* ===== BADGE DE ESPECIALIDAD PRINCIPAL ===== */
+.badge-especialidad-principal {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge-especialidad-principal span {
+    background: #D81B60;
+    color: white;
+    padding: 0.4rem 1.5rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(216, 27, 96, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Versión responsive */
+@media (max-width: 768px) {
+    .badge-especialidad-principal span {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.4rem;
+    }
+}

@@ -93,19 +93,19 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE DETALLE -->
-    <div id="especialista-detalle" class="especialista-detalle">
-        <div class="container">
-            <div id="detalle-contenido">
-                <div style="text-align: center; padding: 2rem;">
-                    <p>Selecciona un especialista para ver más información.</p>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 1.5rem;">
-                <button id="cerrar-detalle" class="btn-secundario">Cerrar</button>
+ <!-- SECCIÓN DE DETALLE (mejorada para móvil) -->
+<div id="especialista-detalle" class="especialista-detalle">
+    <div class="container">
+        <div id="detalle-contenido">
+            <div style="text-align: center; padding: 2rem;">
+                <p>Selecciona un especialista para ver más información.</p>
             </div>
         </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <button id="cerrar-detalle" class="btn-secundario" style="min-width: 120px;">Cerrar</button>
+        </div>
     </div>
+</div>
 
     <!-- WHATSAPP FLOTANTE -->
     <a href="https://wa.me/584121827436" class="whatsapp-flotante" target="_blank">
@@ -147,100 +147,119 @@
 </footer>
 
     <script>
-        // ========================
-        // MENÚ HAMBURGUESA
-        // ========================
-        const menuIcon = document.getElementById('menuIcon');
-        const navLinks = document.getElementById('navLinks');
-        if (menuIcon) {
-            menuIcon.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
+    // ========================
+    // MENÚ HAMBURGUESA
+    // ========================
+    const menuIcon = document.getElementById('menuIcon');
+    const navLinks = document.getElementById('navLinks');
+    if (menuIcon) {
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // ========================
+    // VARIABLE PARA GUARDAR LA ÚLTIMA TARJETA SELECCIONADA
+    // ========================
+    let ultimaTarjetaSeleccionada = null;
+
+    // ========================
+    // DATOS DE LOS ESPECIALISTAS
+    // ========================
+    const especialistas = {
+        1: {
+            nombre: "Dra. Victoria Prada",
+            especialidad: "Ginecología - Obstetricia | Piso Pélvico | Ginecología Estética",
+            descripcion: "Médico especialista en ginecología y obstetricia, con amplia experiencia en el área. Su enfoque combina la más avanzada tecnología médica con un trato cálido y personalizado, brindando atención integral a cada paciente."
+        },
+        2: {
+            nombre: "Dra. Verónica Bond",
+            especialidad: "Coloproctología",
+            descripcion: "Especialista en el diagnóstico y tratamiento de enfermedades del colon, recto y ano. Atención integral para hemorroides, fisuras, fístulas, estreñimiento crónico y cáncer colorrectal."
+        },
+        3: {
+            nombre: "Dra. Jhorbelys Dugarte",
+            especialidad: "Urología | Fertilidad Masculina | Piso Pélvico",
+            descripcion: "Experta en salud urológica femenina y masculina. Tratamiento de infecciones urinarias, fertilidad en hombres y rehabilitación del suelo pélvico para incontinencia y prolapsos."
+        },
+        4: {
+            nombre: "Dra. Beatriz Quijada",
+            especialidad: "Medicina Perinatal",
+            descripcion: "Especialista en embarazos de alto riesgo, manejo de complicaciones durante la gestación (diabetes, hipertensión, parto prematuro) y seguimiento integral para la salud de la madre y el bebé."
+        },
+        5: {
+            nombre: "Dr. Héctor Adrián",
+            especialidad: "Diagnóstico Prenatal | Ecografía 5D",
+            descripcion: "Realiza ecografías obstétricas de alta resolución, incluyendo ecografía 5D para ver al bebé en detalle. Diagnóstico prenatal temprano de malformaciones."
+        },
+        6: {
+            nombre: "Dra. Yusbelis Morillo",
+            especialidad: "Ginecología | Piso Pélvico",
+            descripcion: "Atención ginecológica integral y rehabilitación del suelo pélvico. Tratamiento de incontinencia urinaria, prolapsos y disfunciones del piso pélvico."
         }
+    };
 
-        // ========================
-        // DATOS DE LOS ESPECIALISTAS
-        // ========================
-        const especialistas = {
-            1: {
-                nombre: "Dra. Victoria Prada",
-                especialidad: "Ginecología - Obstetricia | Piso Pélvico | Ginecología Estética",
-                descripcion: "Médico especialista en ginecología y obstetricia, con amplia experiencia en el área. Su enfoque combina la más avanzada tecnología médica con un trato cálido y personalizado, brindando atención integral a cada paciente."
-            },
-            2: {
-                nombre: "Dra. Verónica Bond",
-                especialidad: "Coloproctología",
-                descripcion: "Especialista en el diagnóstico y tratamiento de enfermedades del colon, recto y ano. Atención integral para hemorroides, fisuras, fístulas, estreñimiento crónico y cáncer colorrectal."
-            },
-            3: {
-                nombre: "Dra. Jhorbelys Dugarte",
-                especialidad: "Urología | Fertilidad Masculina | Piso Pélvico",
-                descripcion: "Experta en salud urológica femenina y masculina. Tratamiento de infecciones urinarias, fertilidad en hombres y rehabilitación del suelo pélvico para incontinencia y prolapsos."
-            },
-            4: {
-                nombre: "Dra. Beatriz Quijada",
-                especialidad: "Medicina Perinatal",
-                descripcion: "Especialista en embarazos de alto riesgo, manejo de complicaciones durante la gestación (diabetes, hipertensión, parto prematuro) y seguimiento integral para la salud de la madre y el bebé."
-            },
-            5: {
-                nombre: "Dr. Héctor Adrián",
-                especialidad: "Diagnóstico Prenatal | Ecografía 5D",
-                descripcion: "Realiza ecografías obstétricas de alta resolución, incluyendo ecografía 5D para ver al bebé en detalle. Diagnóstico prenatal temprano de malformaciones."
-            },
-            6: {
-                nombre: "Dra. Yusbelis Morillo",
-                especialidad: "Ginecología | Piso Pélvico",
-                descripcion: "Atención ginecológica integral y rehabilitación del suelo pélvico. Tratamiento de incontinencia urinaria, prolapsos y disfunciones del piso pélvico."
+    // ========================
+    // CLIC EN TARJETA -> MOSTRAR DETALLE
+    // ========================
+    const detallesDiv = document.getElementById('especialista-detalle');
+    const detalleContenido = document.getElementById('detalle-contenido');
+
+    document.querySelectorAll('.equipo-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Evitar que el clic en el botón también dispare el detalle
+            if (e.target.classList && e.target.classList.contains('btn-wa-card')) {
+                return;
             }
-        };
-
-        // ========================
-        // CLIC EN TARJETA -> MOSTRAR DETALLE
-        // ========================
-        const detallesDiv = document.getElementById('especialista-detalle');
-        const detalleContenido = document.getElementById('detalle-contenido');
-
-        document.querySelectorAll('.equipo-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.target.classList && e.target.classList.contains('btn-wa-card')) {
-                    return;
-                }
-                const id = card.getAttribute('data-especialista');
-                const data = especialistas[id];
-                
-                detalleContenido.innerHTML = `
-                    <h3 style="color: #D81B60; margin-bottom: 0.5rem;">${data.nombre}</h3>
-                    <p style="font-weight: bold; color: #D81B60; margin-bottom: 1rem;">${data.especialidad}</p>
-                    <p style="line-height: 1.6;">${data.descripcion}</p>
-                    <p style="margin-top: 1.5rem; font-style: italic;">📲 Para agendar una cita, presiona el botón "Agendar cita" en su tarjeta.</p>
-                `;
-                
-                detallesDiv.classList.add('active');
-                detallesDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+            
+            // GUARDAMOS LA TARJETA QUE SE SELECCIONÓ
+            ultimaTarjetaSeleccionada = card;
+            
+            const id = card.getAttribute('data-especialista');
+            const data = especialistas[id];
+            
+            detalleContenido.innerHTML = `
+                <h3 style="color: #D81B60; margin-bottom: 0.5rem;">${data.nombre}</h3>
+                <p style="font-weight: bold; color: #D81B60; margin-bottom: 1rem;">${data.especialidad}</p>
+                <p style="line-height: 1.6;">${data.descripcion}</p>
+                <p style="margin-top: 1.5rem; font-style: italic;">📲 Para agendar una cita, presiona el botón "Agendar cita" en su tarjeta.</p>
+            `;
+            
+            detallesDiv.classList.add('active');
+            detallesDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // ========================
-        // BOTONES DE WHATSAPP EN CADA TARJETA
-        // ========================
-        const NUMERO_WHATSAPP = '584121827436';
+    // ========================
+    // CERRAR DETALLE Y VOLVER A LA TARJETA SELECCIONADA
+    // ========================
+    document.getElementById('cerrar-detalle').addEventListener('click', () => {
+        detallesDiv.classList.remove('active');
         
-        document.querySelectorAll('.btn-wa-card').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const nombreEspecialista = btn.getAttribute('data-nombre');
-                const mensaje = `Hola, quisiera agendar una cita con ${nombreEspecialista}. ¿Podrían darme información?`;
-                const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
-                window.open(url, '_blank');
-            });
-        });
+        if (ultimaTarjetaSeleccionada) {
+            ultimaTarjetaSeleccionada.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            ultimaTarjetaSeleccionada.style.transition = '0.3s';
+            ultimaTarjetaSeleccionada.style.boxShadow = '0 0 0 2px #D81B60';
+            setTimeout(() => {
+                ultimaTarjetaSeleccionada.style.boxShadow = '';
+            }, 800);
+        }
+    });
 
-        // ========================
-        // CERRAR DETALLE
-        // ========================
-        document.getElementById('cerrar-detalle').addEventListener('click', () => {
-            detallesDiv.classList.remove('active');
+    // ========================
+    // BOTONES DE WHATSAPP EN CADA TARJETA
+    // ========================
+    const NUMERO_WHATSAPP = '584121827436';
+    
+    document.querySelectorAll('.btn-wa-card').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const nombreEspecialista = btn.getAttribute('data-nombre');
+            const mensaje = `Hola, quisiera agendar una cita con ${nombreEspecialista}. ¿Podrían darme información?`;
+            const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
