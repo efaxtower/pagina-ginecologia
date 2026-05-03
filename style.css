@@ -1,4 +1,6 @@
-        /* ===== RESET Y BASE ===== */
+/* ============================================
+   1. RESET Y BASE
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +13,25 @@ body {
     color: #2D2D2D;
 }
 
-/* ===== NAVBAR ===== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 4rem 2rem;
+}
+
+.section h2 {
+    text-align: center;
+    color: #D81B60;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   2. NAVBAR Y MENÚ
+   ============================================ */
 .navbar {
     position: fixed;
     top: 0;
@@ -23,8 +43,6 @@ body {
 }
 
 .navbar .container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,21 +69,21 @@ body {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: #D81B60;
-}
+.nav-links a:hover { color: #D81B60; }
 
-/* Menú hamburguesa (solo para móvil) */
+/* Menú hamburguesa */
 .menu-icon {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
 }
 
-/* ===== HERO CON IMAGEN DE FONDO + FILTRO OSCURO ===== */
+/* ============================================
+   3. HERO
+   ============================================ */
 .hero {
     height: 100vh;
-    background-image: url('fondo-clinica.jpg'); /* Cámbialo por tu imagen real */
+    background-image: url('fondo-clinica-ia.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -73,7 +91,6 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
 }
 
 .hero::before {
@@ -83,7 +100,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Filtro oscuro del 50% */
+    background: rgba(0, 0, 0, 0.35);
     z-index: 1;
 }
 
@@ -95,168 +112,64 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 .destacar {
+    color: #FFB7C5;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
 }
 
+.hero-content p .dra-destacar {
+    color: #FFB7C5;
+    font-weight: bold;
+}
+
+/* ============================================
+   4. BOTONES (UNIFICADOS)
+   ============================================ */
 .btn-whatsapp {
     background-color: #25D366;
     color: white;
-    padding: 12px 30px;
-    border-radius: 50px;
+    padding: 12px 28px;
+    border-radius: 60px;
     text-decoration: none;
     font-weight: bold;
-    display: inline-block;
-    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    line-height: 1;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-whatsapp:hover {
     background-color: #128C7E;
+    transform: scale(1.02);
 }
 
-/* ===== SECCIONES GENERALES ===== */
-.section {
-    padding: 4rem 2rem;
+.btn-whatsapp .wa-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+    flex-shrink: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section h2 {
-    text-align: center;
-    color: #D81B60;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.btn-secundario {
-    display: inline-block;
-}
-
-/* ===== TARJETAS DE TESTIMONIOS (estilo carrusel estático) ===== */
-.testimonios-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.testimonio-card {
-    background: white;
-    border-radius: 15px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-    
-}
-
-.testimonio-card:hover {
-    transform: translateY(-5px);
-}
-
-.testimonio-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
-    color: #555;
-}
-
-.testimonio-card .paciente {
-    font-weight: bold;
-    color: #D81B60;
-}
-
-/* ===== PREPARACIÓN + UBICACIÓN (lado a lado) ===== */
-.flex-dos-columnas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.preparacion-card, .ubicacion-card {
-    background: #FFF0F5;
-    padding: 2rem;
-    border-radius: 15px;
-}
-
-.preparacion-card h3, .ubicacion-card h3 {
-    color: #D81B60;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.preparacion-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.preparacion-card li {
-    margin: 0.8rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.preparacion-card li::before {
-    content: "✅";
-    position: absolute;
-    left: 0;
-    color: #25D366;
-}
-
-.ubicacion-card p {
-    margin: 0.5rem 0;
-}
-
-.mapa {
-    margin: 1rem 0;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
-    
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem 0;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
-    .flex-dos-columnas {
-        grid-template-columns: 1fr;
-    }
-    
-    .section {
-        padding: 2rem 1rem;
-    }
-}
-
-
-
-
-
-/* ===== BOTONES DE NAVEGACIÓN ===== */
 .btn-secundario {
     background-color: #D81B60;
     color: white;
@@ -269,11 +182,249 @@ body {
     transition: background 0.3s;
 }
 
-.btn-secundario:hover {
-    background-color: #AD1457;
+.btn-secundario:hover { background-color: #AD1457; }
+
+/* Botón flotante WhatsApp */
+.whatsapp-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    z-index: 1000;
 }
 
-/* ===== PÁGINA SOBRE NOSOTROS ===== */
+.whatsapp-flotante:hover { transform: scale(1.1); }
+
+.whatsapp-flotante img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Botón dentro de tarjetas de equipo */
+.btn-wa-card {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+    font-family: inherit;
+}
+
+.btn-wa-card:hover { background-color: #128C7E; }
+
+/* ============================================
+   5. TARJETAS (GRIDS UNIFICADOS)
+   ============================================ */
+/* Grid genérico para tarjetas */
+.testimonios-grid,
+.servicios-grid,
+.objetivos-grid,
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Grid específico para servicios de colaboradores */
+.servicios-colaboradores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Estilo base para TODAS las tarjetas */
+.testimonio-card,
+.servicio-card,
+.objetivo-card,
+.especialidad-card,
+.servicio-colab-card,
+.equipo-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover general */
+.testimonio-card:hover,
+.servicio-card:hover,
+.objetivo-card:hover,
+.especialidad-card:hover,
+.servicio-colab-card:hover,
+.equipo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Estilos específicos */
+.testimonio-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.testimonio-card .paciente {
+    font-weight: bold;
+    color: #D81B60;
+}
+
+.servicio-card h3,
+.especialidad-card h3 {
+    color: #D81B60;
+    margin: 1rem 0 0.5rem;
+}
+
+.servicio-card p,
+.especialidad-card p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.servicio-colab-card {
+    background: #FFF5F5;
+    border: 1px solid #FFE0E1;
+}
+
+.servicio-colab-card:hover {
+    border-color: #FFB7C5;
+}
+
+.servicio-colab-card h3 {
+    color: #D81B60;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.2rem;
+}
+
+.servicio-colab-card p {
+    color: #555;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.servicio-colab-card .servicio-tag {
+    display: inline-block;
+    background: white;
+    color: #D81B60;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+}
+
+.especialidad-icono,
+.servicio-icono {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.objetivo-card h3 {
+    color: #D81B60;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   6. EQUIPO COLABORADOR (TARJETAS DESTACADAS)
+   ============================================ */
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+.equipo-foto {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    background: #FFE0E1;
+    display: block;
+}
+
+.equipo-card h3 {
+    color: #D81B60;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.equipo-card p { color: #555; font-size: 0.9rem; }
+
+/* Tarjeta destacada (Dra. Victoria) */
+.equipo-card-destacado {
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F5 100%);
+    border: 2px solid #D81B60;
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.1);
+}
+
+.equipo-card-destacado .equipo-foto {
+    border: 3px solid #D81B60;
+    margin-top: 0.5rem;
+}
+
+.equipo-card-destacado h3 {
+    color: #D81B60;
+    font-size: 1.3rem;
+}
+
+/* Badges */
+.especialidad-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 4px 14px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.badge-principal {
+    background: #D81B60;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.badge-secundario {
+    background: #FFE0E1;
+    color: #D81B60;
+    border: 1px solid #FFB7C5;
+}
+
+/* Detalle del especialista */
+.especialista-detalle {
+    display: none;
+    background: #FFF5F5;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem auto 2rem;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.especialista-detalle.active { display: block; }
+
+/* ============================================
+   7. SOBRE NOSOTROS Y DR. VICTORIA
+   ============================================ */
 .sobre-header {
     background: #FFF0F5;
     padding: 120px 2rem 4rem;
@@ -285,7 +436,62 @@ body {
     font-size: 2.5rem;
 }
 
-/* Tarjeta de socia (más grande y detallada) */
+.dra-destacada {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: white;
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.dra-foto { flex: 1; min-width: 200px; }
+.dra-foto img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dra-info { flex: 2; }
+.dra-info h2 {
+    color: #D81B60;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.dra-info h3 {
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #FFE0E1;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.dra-info p { color: #444; line-height: 1.6; margin: 1rem 0; }
+.dra-destacados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.dra-destacados span {
+    background: #FFF0F5;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #D81B60;
+}
+
 .socia-detalle {
     background: white;
     border-radius: 20px;
@@ -316,57 +522,94 @@ body {
     margin-bottom: 1rem;
 }
 
-.socia-detalle .descripcion {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-/* Sección de objetivos */
-.objetivos-grid {
+/* ============================================
+   8. PREPARACIÓN CONSULTA Y UBICACIÓN
+   ============================================ */
+.flex-dos-columnas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    align-items: stretch; /* Fuerza a que ambas columnas tengan la misma altura */
 }
 
-.objetivo-card {
-    background: white;
-    padding: 2rem;
+.preparacion-card, .ubicacion-card {
+    background: #FFF0F5;
+    padding: 1.5rem;
     border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 3px solid #D81B60;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa toda la altura de la celda del grid */
 }
 
-.objetivo-card h3 {
+.preparacion-card h3, .ubicacion-card h3 {
     color: #D81B60;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
-/* Botón de volver */
-.boton-volver {
-    text-align: center;
-    margin: 2rem 0;
+.preparacion-card ul {
+    list-style: none;
+    padding-left: 0;
+    flex: 1; /* Empuja el bloque de "Primera vez" hacia abajo */
+    margin-bottom: 1rem;
 }
 
-/* Responsive para móvil */
-@media (max-width: 768px) {
-    .socia-detalle {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .socia-detalle img {
-        max-width: 200px;
-        margin: 0 auto;
-    }
+.preparacion-card li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
+.preparacion-card li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+    color: #25D366;
+}
 
+/* El bloque "Primera vez con nosotros" se pega al fondo */
+.preparacion-card > div:last-child {
+    margin-top: auto;
+}
 
+.mapa {
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
 
+.mapa iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    display: block;
+}
 
+/* Botón de enlace a Google Maps (estilo botón relleno) */
+.btn-maps {
+    display: inline-block;
+    background-color: #D81B60; /* Fondo rosa institucional */
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-/* ===== PÁGINA DE SERVICIOS ===== */
+.btn-maps:hover {
+    background-color: #AD1457; /* Rosa más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Se levanta ligeramente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+/* ============================================
+   9. SERVICIO DETALLE (PÁGINA SERVICIOS)
+   ============================================ */
 .servicio-detalle {
     background: white;
     border-radius: 20px;
@@ -379,7 +622,7 @@ body {
     align-items: start;
 }
 
-.servicio-icono {
+.servicio-detalle .servicio-icono {
     font-size: 3rem;
     text-align: center;
     background: #FFF0F5;
@@ -393,22 +636,14 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.servicio-info p {
-    margin-bottom: 0.8rem;
-    line-height: 1.5;
-}
-
 .servicio-info .detalle {
     color: #555;
     font-size: 0.95rem;
+    margin-top: 0.8rem;
 }
 
-/* FAQ específico de servicios */
-.faq-servicios {
-    max-width: 800px;
-    margin: 2rem auto 0;
-}
-
+/* FAQ */
+.faq-servicios { max-width: 800px; margin: 2rem auto 0; }
 .faq-question {
     background: #FFF5F5;
     margin: 1rem 0;
@@ -418,10 +653,7 @@ body {
     transition: background 0.3s;
 }
 
-.faq-question:hover {
-    background: #FFE0E1;
-}
-
+.faq-question:hover { background: #FFE0E1; }
 .faq-question h4 {
     color: #D81B60;
     display: flex;
@@ -437,43 +669,73 @@ body {
     padding-top: 0.8rem;
 }
 
-.faq-question.active .faq-respuesta {
-    display: block;
-}
+.faq-question.active .faq-respuesta { display: block; }
 
-/* Botón WhatsApp flotante (solo en servicios) */
-.whatsapp-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    text-decoration: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-    z-index: 1000;
-}
+.boton-volver { text-align: center; margin: 2rem 0; }
 
-.whatsapp-flotante:hover {
-    transform: scale(1.1);
-}
-
-/* Responsive para servicios */
+/* ============================================
+   10. RESPONSIVE (MEDIA QUERIES)
+   ============================================ */
 @media (max-width: 768px) {
+    .menu-icon { display: block; }
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    .nav-links.active { display: flex; }
+    
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 1rem; }
+    .btn-whatsapp { padding: 10px 20px; font-size: 0.9rem; }
+    .btn-whatsapp .wa-icon { width: 20px; height: 20px; }
+    
+    .flex-dos-columnas,
+    .socia-detalle,
+    .dra-destacada,
     .servicio-detalle {
         grid-template-columns: 1fr;
         text-align: center;
     }
     
-    .servicio-icono {
-        max-width: 80px;
-        margin: 0 auto;
+    .section { padding: 2rem 1rem; }
+    .servicios-colaboradores-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .servicio-colab-card { padding: 0.8rem; }
+    
+    .especialidades-grid,
+    .testimonios-grid,
+    .servicios-grid,
+    .equipo-grid {
+        grid-template-columns: 1fr;
     }
+    
+    .equipo-card-destacado { transform: scale(1); }
+    .equipo-card-destacado:hover { transform: translateY(-5px); }
+    .equipo-foto { width: 100px; height: 100px; }
+    .especialista-detalle { padding: 1.5rem; margin: 1rem; }
+    
+    .socia-detalle img { max-width: 200px; margin: 0 auto; }
+    .dra-foto img { max-width: 200px; }
+    .dra-info h2 { font-size: 1.6rem; }
+    .dra-destacados { justify-content: center; }
 }
+
+/* Imagen/icono circular para cada servicio */
+.servicio-card .servicio-imagen {
+    font-size: 3rem;
+    background: #FFF0F5;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+}
+
+.servicio-card:hover .servicio-imagen {
+    transform: scale(1.05);
+}
+
