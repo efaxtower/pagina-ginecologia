@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Nuestros Servicios | Centro Clínico Láser - Especialidades médicas en Caracas</title>
+    <title>Servicios de Ginecología y Obstetricia | Dra. Victoria Prada en Caracas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
@@ -12,7 +12,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Centro Clínico Láser</a>
+            <a href="index.html" class="logo">Dra. Victoria Prada</a>
             <div class="menu-icon" id="menuIcon">☰</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Inicio</a></li>
@@ -26,8 +26,8 @@
 
     <!-- ENCABEZADO -->
     <div class="sobre-header">
-        <h1>Nuestros Servicios</h1>
-        <p>Un centro con atención integral y tecnología avanzada</p>
+        <h1>Servicios Médicos Especializados</h1>
+        <p>Atención integral de la mano de la <strong>Dra. Victoria Prada</strong> y su equipo</p>
         <a href="https://wa.me/584121827436" class="btn-whatsapp" style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 10px;" target="_blank" rel="noopener noreferrer">
             <img src="img/whatsapp-icon.png" alt="WhatsApp" class="wa-icon" style="width: 30px; height: 30px;">
             <span>Agendar cita</span>
@@ -132,20 +132,106 @@
             <p style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #666;">Para agendar con cualquier especialista, contáctanos al WhatsApp del centro</p>
         </div>
     </section>
-
-    <!-- PREGUNTAS FRECUENTES -->
-    <section class="section">
-        <div class="container">
-            <h2 style="text-align: center;">❓ Preguntas Frecuentes</h2>
-            <div class="faq-servicios">
-                <div class="faq-question"><h4>¿Necesito cita previa? <span>▼</span></h4><div class="faq-respuesta">Sí, todos nuestros servicios requieren cita previa. Puedes agendar por WhatsApp.</div></div>
-                <div class="faq-question"><h4>¿Cubren servicios los seguros médicos? <span>▼</span></h4><div class="faq-respuesta">Trabajamos con varios seguros privados. Al agendar te informamos.</div></div>
-                <div class="faq-question"><h4>¿Cuál es el costo de la consulta? <span>▼</span></h4><div class="faq-respuesta">Escríbenos por WhatsApp y te daremos información actualizada.</div></div>
-                <div class="faq-question"><h4>¿Atienden emergencias? <span>▼</span></h4><div class="faq-respuesta">Sí, dentro de nuestro horario. Fuera te orientamos a centros de urgencia.</div></div>
-                <div class="faq-question"><h4>¿Qué documentos debo llevar? <span>▼</span></h4><div class="faq-respuesta">Cédula, exámenes previos y lista de medicamentos actuales.</div></div>
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center;">🔬 Descubre Nuestra Tecnología Estrella</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            
+            <div class="tecno-card" style="background: #FFF5F5; padding: 2rem; border-radius: 25px; text-align: center;">
+                <img src="img/co2.jpg" alt="Láser CO2" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #D81B60;">Láser CO2</h3>
+                <p>Indicado para el rejuvenecimiento íntimo, tratamiento de cicatrices y lesiones de la piel. Es un procedimiento ambulatorio, rápido y con mínimas molestias.</p>
             </div>
+            
+            <div class="tecno-card" style="background: #FFF5F5; padding: 2rem; border-radius: 25px; text-align: center;">
+                <img src="img/silla-aurora.jpg" alt="Silla Aurora HIFEM" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #D81B60;">Silla Aurora (Tecnología HIFEM)</h3>
+                <p>Fortalece la musculatura del piso pélvico a través de campos electromagnéticos de alta intensidad. Es ideal para la incontinencia urinaria y la rehabilitación postparto.</p>
+            </div>
+            
+            <div class="tecno-card" style="background: #FFF5F5; padding: 2rem; border-radius: 25px; text-align: center;">
+                <img src="img/hifu.jpg" alt="HIFU" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin: 0 auto 1rem; display: block; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <h3 style="color: #D81B60;">HIFU</h3>
+                <p>Ultrasonido focalizado de alta intensidad. Se utiliza para tratamientos no invasivos, con alta precisión y sin afectar los tejidos circundantes.</p>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<script>
+    // ========================
+    // ANIMACIÓN AL HACER SCROLL PARA TECNOLOGÍA
+    // ========================
+    const tecnoCards = document.querySelectorAll('.tecno-card');
+    
+    function verificarTecnoCards() {
+        tecnoCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const estaVisible = rect.top < window.innerHeight - 100;
+            if (estaVisible) {
+                card.classList.add('visible');
+            }
+        });
+    }
+    
+    // Verificar al cargar y al hacer scroll
+    window.addEventListener('load', verificarTecnoCards);
+    window.addEventListener('scroll', verificarTecnoCards);
+</script>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center;">❓ Preguntas Frecuentes</h2>
+        <div class="faq-servicios">
+
+            <div class="faq-question">
+                <h4>¿Necesito cita previa? <span>▼</span></h4>
+                <div class="faq-respuesta">
+                    Sí, todos nuestros servicios requieren cita previa. Puedes agendar por WhatsApp.
+                </div>
+            </div>
+
+            <div class="faq-question">
+                <h4>¿Cubren servicios los seguros médicos? <span>▼</span></h4>
+                <div class="faq-respuesta">
+                    Sí, pero solo quirúrgicos y contra reembolso. Al agendar te informamos si tu póliza está cubierta.
+                </div>
+            </div>
+
+            <div class="faq-question">
+                <h4>¿Cuál es el costo de la consulta? <span>▼</span></h4>
+                <div class="faq-respuesta">
+                    Depende del tipo de consulta y los estudios requeridos. Escríbenos por WhatsApp y te daremos información actualizada.
+                </div>
+            </div>
+
+            <div class="faq-question">
+                <h4>¿Qué documentos debo llevar? <span>▼</span></h4>
+                <div class="faq-respuesta">
+                    Cédula de identidad, exámenes previos que tengas a la mano y lista de medicamentos actuales.
+                </div>
+            </div>
+
+            <div class="faq-question">
+                <h4>¿Atienden emergencias? <span>▼</span></h4>
+                <div class="faq-respuesta">
+                    Sí, a cualquier hora. Contamos con un equipo que podrá atenderte. Contáctanos de inmediato.
+                </div>
+            </div>
+
+        </div>
+
+<!-- Botón de emergencia FUERA del FAQ -->
+<div style="text-align: center; margin: 1rem 0 0.5rem 0;">
+    <a href="https://wa.me/584121827436" class="btn-emergencia" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px;">
+        <img src="img/whatsapp-icon.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+        <span>EMERGENCIA - CONTACTA AHORA </span>
+    </a>
+</div>
+</div>
+</section>
 
     <!-- BOTÓN DE VOLVER -->
     <div class="boton-volver">
@@ -164,11 +250,12 @@
             </div>
 
             <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-                <p style="margin-bottom: 0.5rem;">© 2026 Centro Clínico Láser | Todos los derechos reservados</p>
-                <p style="font-size: 0.85rem; opacity: 0.9;">
+                <p style="margin-bottom: 0.5rem;">© 2026 Dra. Victoria Prada | Todos los derechos reservados</p>
+                <!--<p style="font-size: 0.85rem; opacity: 0.9;">
                     💻 Diseño web: <strong>Jesús Pérez</strong> | 
                     <a href="https://forms.gle/ci2whmRBoocPAq5g7" style="color: white; text-decoration: underline;" target="_blank" rel="noopener noreferrer">¿Necesitas una web para tu negocio? Contáctame</a>
                 </p>
+            -->
             </div>
         </div>
     </footer>

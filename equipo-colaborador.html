@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>El Equipo | Centro Clínico Láser - Especialistas en salud femenina</title>
+    <title>Nuestro Equipo Médico | Dra. Victoria Prada - Ginecología y Obstetricia</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
@@ -12,7 +12,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">Centro Clínico Láser</a>
+            <a href="index.html" class="logo">Dra. Victoria Prada</a>
             <div class="menu-icon" id="menuIcon">☰</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Inicio</a></li>
@@ -26,7 +26,7 @@
 
     <!-- ENCABEZADO DE LA PÁGINA -->
     <div class="sobre-header">
-        <h1>El Equipo</h1>
+        <h1>Nuestro Equipo</h1>
         <p>La <strong>Dra. Victoria Prada</strong> y su equipo de especialistas, unidos por tu salud</p>
     </div>
 
@@ -53,11 +53,11 @@
                     <button class="btn-wa-card" data-nombre="Dra. Verónica Bond">📲 Agendar cita</button>
                 </div>
                 
-                <!-- Tarjeta 3: Dra. Jhorbelys Dugarte -->
+                <!-- Tarjeta 3: Dra. Jhorbelys Rojas Dugarte -->
                 <div class="equipo-card" data-especialista="3">
                     <span class="especialidad-badge badge-secundario">Uróloga</span>
-                    <img src="Recursos/img-m.png" alt="Dra. Jhorbelys Dugarte" class="equipo-foto">
-                    <h3>Dra. Jhorbelys Dugarte</h3>
+                    <img src="Recursos/img-m.png" alt="Dra. Jhorbelys Rojas Dugarte" class="equipo-foto">
+                    <h3>Dra. Jhorbelys Rojas Dugarte</h3>
                     <p>Fertilidad Masculina | Piso Pélvico</p>
                     <button class="btn-wa-card" data-nombre="Dra. Jhorbelys Dugarte">📲 Agendar cita</button>
                 </div>
@@ -93,7 +93,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE DETALLE (mejorada para móvil) -->
+    <!-- SECCIÓN DE DETALLE -->
     <div id="especialista-detalle" class="especialista-detalle">
         <div class="container">
             <div id="detalle-contenido">
@@ -115,7 +115,6 @@
     <!-- FOOTER -->
     <footer style="background: #D81B60; color: white; padding: 2rem 0 1rem 0;">
         <div class="container">
-            <!-- Links rápidos -->
             <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
                 <a href="index.html" style="color: white; text-decoration: none;">Inicio</a>
                 <a href="servicios.html" style="color: white; text-decoration: none;">Servicios</a>
@@ -124,13 +123,13 @@
                 <a href="index.html#contacto" style="color: white; text-decoration: none;">Contacto</a>
             </div>
 
-            <!-- Copyright + Desarrollador -->
             <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-                <p style="margin-bottom: 0.5rem;">© 2026 Centro Clínico Láser | Todos los derechos reservados</p>
-                <p style="font-size: 0.85rem; opacity: 0.9;">
+                <p style="margin-bottom: 0.5rem;">© 2026 Dra. Victoria Prada | Todos los derechos reservados</p>
+                                <!--<p style="font-size: 0.85rem; opacity: 0.9;">
                     💻 Diseño web: <strong>Jesús Pérez</strong> | 
                     <a href="https://forms.gle/ci2whmRBoocPAq5g7" style="color: white; text-decoration: underline;" target="_blank" rel="noopener noreferrer">¿Necesitas una web para tu negocio? Contáctame</a>
                 </p>
+            -->
             </div>
         </div>
     </footer>
@@ -148,11 +147,6 @@
         }
 
         // ========================
-        // VARIABLE PARA GUARDAR LA ÚLTIMA TARJETA SELECCIONADA
-        // ========================
-        let ultimaTarjetaSeleccionada = null;
-
-        // ========================
         // DATOS DE LOS ESPECIALISTAS
         // ========================
         const especialistas = {
@@ -167,7 +161,7 @@
                 descripcion: "Especialista en el diagnóstico y tratamiento de enfermedades del colon, recto y ano. Atención integral para hemorroides, fisuras, fístulas, estreñimiento crónico y cáncer colorrectal."
             },
             3: {
-                nombre: "Dra. Jhorbelys Dugarte",
+                nombre: "Dra. Jhorbelys Rojas Dugarte",
                 especialidad: "Urología | Fertilidad Masculina | Piso Pélvico",
                 descripcion: "Experta en salud urológica femenina y masculina. Tratamiento de infecciones urinarias, fertilidad en hombres y rehabilitación del suelo pélvico para incontinencia y prolapsos."
             },
@@ -191,19 +185,17 @@
         // ========================
         // CLIC EN TARJETA -> MOSTRAR DETALLE
         // ========================
+        let ultimaTarjetaSeleccionada = null;
         const detallesDiv = document.getElementById('especialista-detalle');
         const detalleContenido = document.getElementById('detalle-contenido');
 
         document.querySelectorAll('.equipo-card').forEach(card => {
             card.addEventListener('click', (e) => {
-                // Evitar que el clic en el botón también dispare el detalle
                 if (e.target.classList && e.target.classList.contains('btn-wa-card')) {
                     return;
                 }
                 
-                // GUARDAMOS LA TARJETA QUE SE SELECCIONÓ
                 ultimaTarjetaSeleccionada = card;
-                
                 const id = card.getAttribute('data-especialista');
                 const data = especialistas[id];
                 
