@@ -276,108 +276,37 @@ body {
     justify-content: center;
 }
 
-/* Estilo base de tarjetas */
-.testimonio-card,
-.servicio-card,
-.especialidad-card,
-.servicio-colab-card,
+/* Estilo base de tarjetas colaboradores (MEJORADO) */
 .equipo-card {
     background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
+    border-radius: 24px;
+    padding: 1.8rem 1.2rem;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    border: 1px solid rgba(216, 27, 96, 0.08);
 }
 
-.testimonio-card:hover,
-.servicio-card:hover,
-.especialidad-card:hover,
-.servicio-colab-card:hover,
 .equipo-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(216, 27, 96, 0.15);
+    border-color: #D81B60;
 }
 
-/* Testimonios */
-.testimonio-card p {
-    font-style: italic;
-    margin-bottom: 1rem;
+.equipo-card h3 {
+    color: #D81B60;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.equipo-card p {
     color: #555;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
 }
 
-.testimonio-card .paciente {
-    font-weight: bold;
-    color: #D81B60;
-}
-
-/* Servicios y especialidades */
-.servicio-card h3,
-.especialidad-card h3 {
-    color: #D81B60;
-    margin: 1rem 0 0.5rem;
-}
-
-.servicio-card p,
-.especialidad-card p {
-    color: #555;
-    font-size: 0.9rem;
-}
-
-/* Servicios colaboradores */
-.servicio-colab-card {
-    background: #FFF5F5;
-    border: 1px solid #FFE0E1;
-}
-
-.servicio-colab-card:hover { border-color: #FFB7C5; }
-
-.servicio-colab-card h3 {
-    color: #D81B60;
-    font-size: 1rem;
-    margin: 0.5rem 0 0.2rem;
-}
-
-.servicio-colab-card p {
-    color: #555;
-    font-size: 0.8rem;
-    margin: 0;
-}
-
-.servicio-colab-card .servicio-tag {
-    display: inline-block;
-    background: white;
-    color: #D81B60;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-top: 0.5rem;
-}
-
-/* Iconos */
-.especialidad-icono,
-.servicio-icono {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-/* Imagen circular para servicios */
-.servicio-card .servicio-imagen {
-    font-size: 3rem;
-    background: #FFF0F5;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    transition: transform 0.2s ease;
-}
-
-.servicio-card:hover .servicio-imagen { transform: scale(1.03); }
-
-/* Tarjetas de valores (destacadas) */
+/* Estilo de tarjetas de valores */
 .objetivo-card {
     background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
     border-radius: 24px;
@@ -431,41 +360,17 @@ body {
     margin: 0;
 }
 
-/* ============================================
-   6. EQUIPO COLABORADOR
-   ============================================ */
-.equipo-foto {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin: 0 auto 1rem;
-    background: #FFE0E1;
-    display: block;
+/* Testimonios */
+.testimonio-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #555;
 }
 
-.equipo-card h3 {
+.testimonio-card .paciente {
+    font-weight: bold;
     color: #D81B60;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
 }
-
-.equipo-card p { color: #555; font-size: 0.9rem; }
-
-.equipo-card-destacado {
-    background: linear-gradient(135deg, #FFF5F5 0%, #FFF0F5 100%);
-    border: 2px solid #D81B60;
-    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.1);
-    will-change: transform;
-    transform: translateZ(0);
-}
-
-.equipo-card-destacado .equipo-foto {
-    border: 3px solid #D81B60;
-    margin-top: 0.5rem;
-}
-
-.equipo-card-destacado h3 { font-size: 1.3rem; }
 
 .especialidad-badge {
     display: inline-block;
@@ -489,6 +394,9 @@ body {
     border: 1px solid #FFB7C5;
 }
 
+/* ============================================
+   6. DETALLE DEL ESPECIALISTA
+   ============================================ */
 .especialista-detalle {
     display: none;
     background: #FFF5F5;
@@ -516,7 +424,6 @@ body {
     font-size: 2.5rem;
 }
 
-/* Tarjeta de historia y misión */
 .dra-destacada {
     background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
     border-radius: 30px;
@@ -779,21 +686,58 @@ body {
 .boton-volver { text-align: center; margin: 2rem 0; }
 
 /* ============================================
-   10. RESPONSIVE
+   10. RESPONSIVE (MEDIA QUERIES UNIFICADAS)
    ============================================ */
 @media (max-width: 768px) {
-    .menu-icon { display: block; }
+    .navbar {
+        background: #D81B60;
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo {
+        color: white;
+        font-size: 1.2rem;
+    }
+    
+    .menu-icon {
+        color: white;
+        font-size: 2rem;
+        display: block;
+    }
+    
     .nav-links {
         display: none;
         width: 100%;
         flex-direction: column;
         text-align: center;
-        padding: 1rem 0;
+        background: #D81B60;
+        margin-top: 0.5rem;
+        border-radius: 12px;
+        overflow: hidden;
     }
+    
     .nav-links.active { display: flex; }
+    
+    .nav-links a {
+        color: white;
+        padding: 0.8rem 1.2rem;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .nav-links a:last-child { border-bottom: none; }
+    
+    .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding-left: 1.5rem;
+        border-radius: 8px;
+    }
     
     .hero-content h1 { font-size: 2rem; }
     .hero-content p { font-size: 1rem; }
+    
     .btn-whatsapp { padding: 10px 20px; font-size: 0.9rem; }
     .btn-whatsapp .wa-icon { width: 20px; height: 20px; }
     
@@ -827,7 +771,6 @@ body {
     
     .equipo-card-destacado { transform: scale(1); }
     .equipo-card-destacado:hover { transform: translateY(-3px); }
-    .equipo-foto { width: 100px; height: 100px; }
     
     .especialista-detalle {
         padding: 1.2rem;
@@ -836,10 +779,23 @@ body {
     }
     .especialista-detalle .btn-secundario { margin-top: 1rem; }
     
-    .socia-detalle img { max-width: 200px; margin: 0 auto; }
-    .dra-foto img { max-width: 200px; }
+    .footer-links { display: none !important; }
+    
+    .whatsapp-flotante { bottom: 90px; }
+    
+    body { padding-bottom: 70px; }
+    
+    .socia-detalle img,
+    .dra-foto img { max-width: 200px; margin: 0 auto; }
+    
     .dra-info h2 { font-size: 1.6rem; }
     .dra-destacados { justify-content: center; }
+    
+    .separador-servicios span,
+    .badge-especialidad-principal span {
+        font-size: 0.85rem;
+        padding: 0.4rem 1.4rem;
+    }
 }
 
 /* ============================================
@@ -852,10 +808,11 @@ body {
     }
 }
 
-html {
-    scroll-behavior: smooth;
-}
-/* Estilo para el index (foto a la izquierda) */
+html { scroll-behavior: smooth; }
+
+/* ============================================
+   12. ESTILOS PARA INDEX (FOTO IZQUIERDA)
+   ============================================ */
 .dra-destacada.dra-index {
     display: flex;
     flex-direction: row;
@@ -873,33 +830,29 @@ html {
     text-align: left;
 }
 
-/* Responsive para móvil en index */
 @media (max-width: 768px) {
     .dra-destacada.dra-index {
         flex-direction: column;
         text-align: center;
     }
-    
     .dra-destacada.dra-index .dra-info {
         text-align: center;
     }
-    
     .dra-destacada.dra-index .dra-destacados {
         justify-content: center;
     }
 }
 
-/* ===== ICONOS CIRCULARES PARA TARJETAS DE SERVICIOS ===== */
+/* ============================================
+   13. ICONOS CIRCULARES (PARA SERVICIOS)
+   ============================================ */
 .servicio-icono-circular {
-    font-size: 2.5rem;
-    background: #FFF0F5;
     width: 70px;
     height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
     margin: 0 auto 1rem;
+    display: block;
+    object-fit: cover;
     transition: transform 0.2s ease;
 }
 
@@ -907,17 +860,13 @@ html {
     transform: scale(1.05);
 }
 
-/* Iconos pequeños para colaboradores */
 .servicio-icono-pequeno {
-    font-size: 1.8rem;
-    background: #FFF5F5;
     width: 55px;
     height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
     margin: 0 auto 0.8rem;
+    display: block;
+    object-fit: cover;
     transition: transform 0.2s ease;
 }
 
@@ -925,7 +874,9 @@ html {
     transform: scale(1.05);
 }
 
-/* ===== SEPARADOR "TAMBIÉN OFRECEMOS" ===== */
+/* ============================================
+   14. SEPARADORES Y BADGES
+   ============================================ */
 .separador-servicios {
     text-align: center;
     margin: 2rem auto;
@@ -945,15 +896,6 @@ html {
     border: 1px solid rgba(216, 27, 96, 0.2);
 }
 
-/* Versión responsive */
-@media (max-width: 768px) {
-    .separador-servicios span {
-        font-size: 0.85rem;
-        padding: 0.4rem 1.4rem;
-    }
-}
-
-/* ===== BADGE DE ESPECIALIDAD PRINCIPAL ===== */
 .badge-especialidad-principal {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -972,36 +914,35 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Versión responsive */
-@media (max-width: 768px) {
-    .badge-especialidad-principal span {
-        font-size: 0.85rem;
-        padding: 0.4rem 1.4rem;
-    }
-}
-
+/* ============================================
+   15. BOTÓN DE EMERGENCIA
+   ============================================ */
 .btn-emergencia {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     background-color: #DC3545;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    padding: 12px 32px;
+    padding: 12px 28px;
     border-radius: 60px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
     animation: pulse 1.8s infinite;
     border: none;
     cursor: pointer;
-    letter-spacing: 1px;
 }
 
 .btn-emergencia:hover {
     background-color: #B02A37;
-    transform: scale(1.03);
+    transform: scale(1.02);
     box-shadow: 0 8px 25px rgba(220, 53, 69, 0.5);
 }
+
+.btn-emergencia img { width: 28px; height: 28px; }
 
 @keyframes pulse {
     0% {
@@ -1018,11 +959,14 @@ html {
     }
 }
 
-/* ===== ANIMACIONES PARA TARJETAS DE TECNOLOGÍA ===== */
+/* ============================================
+   16. ANIMACIONES PARA TARJETAS DE TECNOLOGÍA
+   ============================================ */
 .tecno-card {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: transform, opacity;
 }
 
 .tecno-card.visible {
@@ -1030,7 +974,956 @@ html {
     transform: translateY(0);
 }
 
-/* Retrasos escalonados para cada tarjeta */
 .tecno-card:nth-child(1) { transition-delay: 0.1s; }
 .tecno-card:nth-child(2) { transition-delay: 0.3s; }
 .tecno-card:nth-child(3) { transition-delay: 0.5s; }
+
+/* ============================================
+   17. BOTTOM NAVIGATION (MÓVIL)
+   ============================================ */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 12px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 1px solid #FFE0E1;
+}
+
+.bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    font-size: 0.7rem;
+    transition: color 0.2s;
+}
+
+.bottom-nav-item span:first-child {
+    font-size: 1.4rem;
+    margin-bottom: 2px;
+}
+
+.bottom-nav-item.active { color: #D81B60; }
+.bottom-nav-item:hover { color: #D81B60; }
+
+@media (min-width: 769px) {
+    .bottom-nav { display: none; }
+}
+
+/* ============================================
+   18. TARJETA DESTACADA DE DRA. VICTORIA EN EQUIPO
+   ============================================ */
+.dra-destacada-equipo {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid rgba(216, 27, 96, 0.2);
+}
+
+.dra-foto-equipo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.dra-foto-equipo img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dra-info-equipo { flex: 2; }
+
+.dra-info-equipo h2 {
+    color: #D81B60;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+.dra-info-equipo h3 {
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid #FFE0E1;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.dra-info-equipo p { color: #444; line-height: 1.6; margin: 1rem 0; }
+
+.dra-destacados-equipo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.dra-destacados-equipo span {
+    background: #FFF0F5;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #D81B60;
+}
+
+@media (max-width: 768px) {
+    .dra-destacada-equipo {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    .dra-foto-equipo img { max-width: 200px; }
+    .dra-info-equipo h2 { font-size: 1.6rem; }
+    .dra-destacados-equipo { justify-content: center; }
+}
+
+/* ============================================
+   19. ICONOS BOOTSTRAP PARA ESPECIALISTAS (MEJORADO)
+   ============================================ */
+.equipo-icono-bootstrap {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE0E1 100%);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.15);
+    border: 2px solid rgba(216, 27, 96, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo al hacer hover */
+.equipo-icono-bootstrap::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.equipo-icono-bootstrap i {
+    font-size: 3.2rem;
+    color: #D81B60;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect */
+.equipo-card:hover .equipo-icono-bootstrap {
+    transform: translateY(-8px) scale(1.08);
+    background: linear-gradient(135deg, #FFE0E1 0%, #D81B60 100%);
+    box-shadow: 0 20px 35px rgba(216, 27, 96, 0.35);
+    border-color: white;
+}
+
+.equipo-card:hover .equipo-icono-bootstrap::before {
+    opacity: 1;
+}
+
+.equipo-card:hover .equipo-icono-bootstrap i {
+    color: white;
+    transform: scale(1.15);
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+/* Animación de entrada escalonada */
+.equipo-icono-bootstrap {
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.equipo-card:nth-child(1) .equipo-icono-bootstrap { animation-delay: 0.1s; }
+.equipo-card:nth-child(2) .equipo-icono-bootstrap { animation-delay: 0.2s; }
+.equipo-card:nth-child(3) .equipo-icono-bootstrap { animation-delay: 0.3s; }
+.equipo-card:nth-child(4) .equipo-icono-bootstrap { animation-delay: 0.4s; }
+.equipo-card:nth-child(5) .equipo-icono-bootstrap { animation-delay: 0.5s; }
+.equipo-card:nth-child(6) .equipo-icono-bootstrap { animation-delay: 0.6s; }
+.equipo-card:nth-child(7) .equipo-icono-bootstrap { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   TARJETAS DE ESPECIALISTAS (DISEÑO PREMIUM)
+   ============================================ */
+.equipo-card {
+    background: white;
+    border-radius: 28px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    border: 1px solid rgba(216, 27, 96, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de borde inferior animado */
+.equipo-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D81B60, #FFB7C5);
+    transition: width 0.4s ease;
+    border-radius: 0 0 28px 28px;
+}
+
+.equipo-card:hover::after {
+    width: 100%;
+}
+
+/* Sombra y elevación al hover */
+.equipo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(216, 27, 96, 0.2);
+    border-color: rgba(216, 27, 96, 0.3);
+}
+
+/* Título del especialista */
+.equipo-card h3 {
+    color: #D81B60;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.equipo-card:hover h3 {
+    color: #AD1457;
+}
+
+/* Especialidad / descripción corta */
+.equipo-card p {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+/* Badge de especialidad */
+.especialidad-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 4px 14px;
+    border-radius: 30px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.badge-principal {
+    background: #D81B60;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.badge-secundario {
+    background: #FFE0E1;
+    color: #D81B60;
+    border: 1px solid #FFB7C5;
+}
+
+/* Botón dentro de tarjeta */
+.btn-wa-card {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-wa-card:hover {
+    background-color: #128C7E;
+    transform: scale(1.02);
+}
+
+/* ============================================
+   ICONOS BOOTSTRAP PARA ESPECIALISTAS (PREMIUM)
+   ============================================ */
+.equipo-icono-bootstrap {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE0E1 100%);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.12);
+    border: 2px solid rgba(216, 27, 96, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo */
+.equipo-icono-bootstrap::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.equipo-icono-bootstrap i {
+    font-size: 3.2rem;
+    color: #D81B60;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hover effect del icono */
+.equipo-card:hover .equipo-icono-bootstrap {
+    transform: translateY(-6px) scale(1.08);
+    background: linear-gradient(135deg, #D81B60 0%, #AD1457 100%);
+    box-shadow: 0 15px 30px rgba(216, 27, 96, 0.35);
+    border-color: white;
+}
+
+.equipo-card:hover .equipo-icono-bootstrap::before {
+    opacity: 1;
+}
+
+.equipo-card:hover .equipo-icono-bootstrap i {
+    color: white;
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+/* Animación de entrada */
+.equipo-icono-bootstrap {
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.equipo-card:nth-child(1) .equipo-icono-bootstrap { animation-delay: 0.1s; }
+.equipo-card:nth-child(2) .equipo-icono-bootstrap { animation-delay: 0.2s; }
+.equipo-card:nth-child(3) .equipo-icono-bootstrap { animation-delay: 0.3s; }
+.equipo-card:nth-child(4) .equipo-icono-bootstrap { animation-delay: 0.4s; }
+.equipo-card:nth-child(5) .equipo-icono-bootstrap { animation-delay: 0.5s; }
+.equipo-card:nth-child(6) .equipo-icono-bootstrap { animation-delay: 0.6s; }
+.equipo-card:nth-child(7) .equipo-icono-bootstrap { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   ESTILOS PARA EL DETALLE DEL ESPECIALISTA (MEJORADO)
+   ============================================ */
+.detalle-nombre {
+    color: #D81B60;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.detalle-especialidad {
+    font-weight: bold;
+    color: #AD1457;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #FFE0E1;
+    display: inline-block;
+}
+
+.detalle-descripcion {
+    color: #4A4A4A;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 1rem 0;
+    text-align: justify;
+}
+
+.detalle-mensaje-cita {
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: #D81B60;
+    background: #FFF5F5;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-left: 3px solid #D81B60;
+}
+
+/* Botón de Instagram en footer */
+footer a[href*="instagram"]:hover {
+    background: rgba(255,255,255,0.3) !important;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   BOTONES DEL FOOTER (DISEÑO MEJORADO)
+   ============================================ */
+.footer-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Botón de Instagram */
+.instagram-btn {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.instagram-btn i {
+    font-size: 1.2rem;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+    .footer-btn {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .instagram-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ============================================
+   TARJETAS DE RESEÑAS Y SERVICIOS (RESTAURADAS)
+   ============================================ */
+.testimonio-card,
+.servicio-colab-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonio-card:hover,
+.servicio-colab-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimonio-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.testimonio-card .paciente {
+    font-weight: bold;
+    color: #D81B60;
+}
+
+/* Servicios colaboradores */
+.servicio-colab-card {
+    background: #FFF5F5;
+    border: 1px solid #FFE0E1;
+}
+
+.servicio-colab-card:hover { 
+    border-color: #FFB7C5; 
+}
+
+.servicio-colab-card h3 {
+    color: #D81B60;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.2rem;
+}
+
+.servicio-colab-card p {
+    color: #555;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.servicio-colab-card .servicio-tag {
+    display: inline-block;
+    background: white;
+    color: #D81B60;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   TARJETAS DE ESPECIALISTAS (EQUIPO COLABORADOR)
+   ============================================ */
+.equipo-card {
+    background: white;
+    border-radius: 28px;
+    padding: 1.8rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    border: 1px solid rgba(216, 27, 96, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de borde inferior animado */
+.equipo-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D81B60, #FFB7C5);
+    transition: width 0.4s ease;
+    border-radius: 0 0 28px 28px;
+}
+
+.equipo-card:hover::after {
+    width: 100%;
+}
+
+.equipo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(216, 27, 96, 0.2);
+    border-color: rgba(216, 27, 96, 0.3);
+}
+
+.equipo-card h3 {
+    color: #D81B60;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.equipo-card:hover h3 {
+    color: #AD1457;
+}
+
+.equipo-card p {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+/* Grids */
+.testimonios-grid,
+.servicios-grid,
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.servicios-colaboradores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* ============================================
+   RESTAURAR TARJETAS DE SERVICIOS (PÁGINA SERVICIOS)
+   ============================================ */
+
+/* Tarjetas de servicios principales (Dra. Victoria) */
+.servicio-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.servicio-card h3 {
+    color: #D81B60;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.servicio-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Icono circular para servicios */
+.servicio-icono-circular {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.servicio-card:hover .servicio-icono-circular {
+    transform: scale(1.05);
+}
+
+/* Icono pequeño para especialidades colaboradoras */
+.servicio-icono-pequeno {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 0.8rem;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.servicio-card:hover .servicio-icono-pequeno {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   RESTAURAR TARJETAS DE ESPECIALIDADES (SOBRE NOSOTROS)
+   ============================================ */
+
+/* Grid de especialidades */
+.especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* Tarjetas de especialidades */
+.especialidad-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.especialidad-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.especialidad-card h3 {
+    color: #D81B60;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.especialidad-card p {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Iconos de especialidades */
+.especialidad-icono {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   ICONOS BOOTSTRAP PARA ESPECIALIDADES (SOBRE NOSOTROS)
+   ============================================ */
+.especialidad-icono-bootstrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFE0E1 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.1);
+    border: 1px solid rgba(216, 27, 96, 0.1);
+}
+
+.especialidad-icono-bootstrap i {
+    font-size: 2.5rem;
+    color: #D81B60;
+    transition: all 0.3s ease;
+}
+
+.especialidad-card:hover .especialidad-icono-bootstrap {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #FFE0E1 0%, #D81B60 100%);
+    border-color: white;
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.2);
+}
+
+.especialidad-card:hover .especialidad-icono-bootstrap i {
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   MEJORAS VISUALES PARA SOBRE NOSOTROS
+   ============================================ */
+
+/* Fondo con patrón de puntos suaves */
+body {
+    background: #FFFFFF;
+    background-image: radial-gradient(#FFE0E1 0.8px, transparent 0.8px);
+    background-size: 50px 50px;
+}
+
+/* Separador decorativo entre secciones */
+.section {
+    position: relative;
+}
+
+.section:not(:last-child)::after {
+    content: "✦";
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFB7C5;
+    font-size: 1.5rem;
+    background: white;
+    padding: 0 1rem;
+    font-family: monospace;
+}
+
+/* Ajuste para que el separador no se vea en la última sección */
+.section:last-child::after {
+    display: none;
+}
+.section {
+    position: relative;
+}
+
+.section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #FFB7C5, #D81B60, #FFB7C5);
+    border-radius: 3px;
+}
+
+/* ============================================
+   FONDO CON TEXTURA DE ACUARELA (SOBRE NOSOTROS)
+   ============================================ */
+body {
+    background: #FFFFFF;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 20% 30%, rgba(255, 224, 225, 0.2) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 70%, rgba(255, 224, 225, 0.15) 0%, transparent 60%),
+                      radial-gradient(circle at 40% 80%, rgba(216, 27, 96, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ============================================
+   TARJETA PRINCIPAL DE SOBRE NOSOTROS (CON IMAGEN)
+   ============================================ */
+.dra-destacada-sobre {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF5F5 100%);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(216, 27, 96, 0.08);
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 1px solid rgba(216, 27, 96, 0.1);
+    transition: all 0.3s ease;
+}
+
+.dra-destacada-sobre:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(216, 27, 96, 0.15);
+    border-color: rgba(216, 27, 96, 0.2);
+}
+
+.dra-info-sobre {
+    flex: 2;
+}
+
+.dra-info-sobre h2 {
+    color: #D81B60;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.dra-info-sobre h2 .destacar {
+    color: #D81B60;
+    position: relative;
+}
+
+.dra-info-sobre h2 .destacar::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #D81B60, #FFB7C5);
+    border-radius: 3px;
+}
+
+.dra-info-sobre h3 {
+    color: #555;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+.dra-info-sobre p {
+    color: #444;
+    line-height: 1.6;
+    margin: 1rem 0;
+}
+
+.dra-foto-sobre {
+    flex: 1;
+    min-width: 250px;
+}
+
+.dra-foto-sobre img {
+    width: 100%;
+    max-width: 290px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.dra-destacada-sobre:hover .dra-foto-sobre img {
+    transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dra-destacada-sobre {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .dra-foto-sobre img {
+        max-width: 250px;
+    }
+    
+    .dra-info-sobre h2 {
+        font-size: 1.6rem;
+    }
+}

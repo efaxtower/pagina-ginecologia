@@ -6,6 +6,7 @@
     <title>Sobre la Dra. Victoria Prada | Ginecología y Equipo Médico en Caracas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
@@ -30,15 +31,18 @@
         <p>Conoce su trayectoria, filosofía y el equipo que la acompaña</p>
     </div>
 
-    <!-- HISTORIA Y MISIÓN -->
+       <!-- HISTORIA Y MISIÓN -->
     <section class="section">
         <div class="container">
-            <div class="dra-destacada" style="flex-direction: column; text-align: center;">
-                <div class="dra-info">
+            <div class="dra-destacada-sobre">
+                <div class="dra-info-sobre">
                     <h2>Comprometida con tu <span class="destacar">Salud Integral</span></h2>
                     <h3>Médico especialista en Ginecología y Obstetricia</h3>
                     <p>La <strong>Dra. Victoria Prada</strong> es una médico especialista en ginecología y obstetricia, con una sólida trayectoria en el área. Su práctica se centra en ofrecer una atención que combina la más avanzada tecnología médica con un trato humano, cálido y personalizado.</p>
                     <p>Lidera un equipo multidisciplinario de primer nivel, lo que le permite ofrecer un abordaje integral para una amplia gama de necesidades, abarcando desde la ginecología y obstetricia general, hasta subespecialidades como coloproctología, urología, fertilidad, medicina perinatal y diagnóstico prenatal avanzado.</p>
+                </div>
+                <div class="dra-foto-sobre">
+                    <img src="img/sobre-nosotros.jpeg" alt="Dra. Victoria Prada">
                 </div>
             </div>
         </div>
@@ -69,44 +73,56 @@
         </div>
     </section>
 
-    <!-- ESPECIALIDADES QUE OFRECEMOS -->
+      <!-- ESPECIALIDADES QUE OFRECEMOS -->
     <section class="section">
         <div class="container">
             <h2>Especialidades de la Mano de su Equipo</h2>
             <div class="especialidades-grid">
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">🩺</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-gender-female"></i>
+                    </div>
                     <h3>Ginecología y Obstetricia</h3>
                     <p>Atención integral de la salud femenina, control prenatal y parto.</p>
                 </div>
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">🌸</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
                     <h3>Piso Pélvico</h3>
                     <p>Rehabilitación y tratamiento de incontinencia y prolapsos.</p>
                 </div>
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">🔬</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
                     <h3>Coloproctología</h3>
                     <p>Diagnóstico y tratamiento de enfermedades del colon, recto y ano.</p>
                 </div>
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">💧</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-droplet"></i>
+                    </div>
                     <h3>Urología y Fertilidad</h3>
                     <p>Salud urológica y estudios de fertilidad masculina.</p>
                 </div>
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">🤰</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-stars"></i>
+                    </div>
                     <h3>Medicina Perinatal</h3>
                     <p>Embarazos de alto riesgo y seguimiento especializado.</p>
                 </div>
                 
                 <div class="especialidad-card">
-                    <div class="especialidad-icono">📷</div>
+                    <div class="especialidad-icono-bootstrap">
+                        <i class="bi bi-camera-fill"></i>
+                    </div>
                     <h3>Diagnóstico Prenatal</h3>
                     <p>Ecografías 5D y diagnóstico temprano de malformaciones.</p>
                 </div>
@@ -190,27 +206,33 @@
         <a href="index.html" class="btn-secundario">← Volver al inicio</a>
     </div>
 
-    <!-- FOOTER -->
-    <footer style="background: #D81B60; color: white; padding: 2rem 0 1rem 0;">
-        <div class="container">
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
-                <a href="index.html" style="color: white; text-decoration: none;">Inicio</a>
-                <a href="servicios.html" style="color: white; text-decoration: none;">Servicios</a>
-                <a href="equipo-colaborador.html" style="color: white; text-decoration: none;">El Equipo</a>
-                <a href="sobre-nosotros.html" style="color: white; text-decoration: none;">El Centro</a>
-                <a href="index.html#contacto" style="color: white; text-decoration: none;">Contacto</a>
-            </div>
-
-            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.5rem;">
-                <p style="margin-bottom: 0.5rem;">© 2026 Dra. Victoria Prada | Todos los derechos reservados</p>
-                <!--<p style="font-size: 0.85rem; opacity: 0.9;">
-                    💻 Diseño web: <strong>Jesús Pérez</strong> | 
-                    <a href="https://forms.gle/ci2whmRBoocPAq5g7" style="color: white; text-decoration: underline;" target="_blank" rel="noopener noreferrer">¿Necesitas una web para tu negocio? Contáctame</a>
-                </p>
-            -->
-            </div>
+<!-- FOOTER MEJORADO -->
+<footer style="background: #D81B60; color: white; padding: 2rem 0 1rem 0;">
+    <div class="container">
+        
+        <!-- Links rápidos con diseño de botones -->
+        <div class="footer-links" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <a href="index.html" class="footer-btn">Inicio</a>
+            <a href="servicios.html" class="footer-btn">Servicios</a>
+            <a href="equipo-colaborador.html" class="footer-btn">El Equipo</a>
+            <a href="sobre-nosotros.html" class="footer-btn">El Centro</a>
+            <a href="index.html#contacto" class="footer-btn">Contacto</a>
         </div>
-    </footer>
+
+        <!-- Redes Sociales con botón más elegante -->
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+            <a href="https://www.instagram.com/dravictoriaprada/" target="_blank" rel="noopener noreferrer" class="instagram-btn">
+                <i class="bi bi-instagram"></i>
+                <span>Sígueme en Instagram</span>
+            </a>
+        </div>
+
+        <!-- Copyright -->
+        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1rem;">
+            <p style="margin-bottom: 0.5rem; font-size: 0.8rem; opacity: 0.8;">© 2026 Dra. Victoria Prada | Todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
 
     <!-- WHATSAPP FLOTANTE -->
     <a href="https://wa.me/584121827436" class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
@@ -226,5 +248,29 @@
             });
         }
     </script>
+
+    <!-- NAVBAR INFERIOR (MÓVIL) -->
+<div class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item active">
+        <span>🏠</span>
+        <span><strong>Inicio</strong></span>
+    </a>
+    <a href="servicios.html" class="bottom-nav-item">
+        <span>📋</span>
+        <span><strong>Servicios</strong></span>
+    </a>
+    <a href="equipo-colaborador.html" class="bottom-nav-item">
+        <span>👥</span>
+        <span><strong>Equipo</strong></span>
+    </a>
+    <a href="sobre-nosotros.html" class="bottom-nav-item">
+        <span>📍</span>
+        <span><strong>Centro</strong></span>
+    </a>
+    <a href="index.html#contacto" class="bottom-nav-item">
+        <span>📞</span>
+        <span><strong>Contacto</strong></span>
+    </a>
+</div>
 </body>
 </html>
