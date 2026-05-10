@@ -1927,3 +1927,64 @@ body::before {
         font-size: 1.6rem;
     }
 }
+
+/* ============================================
+   FONDOS INTERCALADOS AUTOMÁTICOS
+   ============================================ */
+
+/* Fondo blanco por defecto para todas las secciones */
+.section {
+    background: #FFFFFF;
+}
+
+/* Las secciones impares (1, 3, 5, 7...) tendrán fondo rosa suave */
+.section:nth-child(odd) {
+    background: #FFF5F5;
+}
+
+/* Excepción: el hero no debe tener fondo rosa (mantiene su imagen) */
+.hero {
+    background: none;
+    background-image: url('img/background(2).png');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* Excepción: el sobre-header no debe cambiar (ya tiene su propio fondo) */
+.sobre-header {
+    background: #FFF0F5;
+}
+
+/* Excepción: el footer no debe tener fondo rosa */
+footer {
+    background: #D81B60 !important;
+}
+
+/* Asegurar que las tarjetas dentro de secciones no hereden el fondo */
+.preparacion-card,
+.ubicacion-card,
+.dra-destacada,
+.dra-destacada-equipo,
+.dra-destacada-sobre,
+.objetivo-card,
+.especialidad-card,
+.servicio-card,
+.testimonio-card,
+.servicio-colab-card,
+.equipo-card {
+    background: white;
+}
+
+/* Fondo rosa para secciones impares */
+.section:nth-child(odd) {
+    background: #FFFFFF;
+}
+
+/* Fondo blanco para secciones pares */
+.section:nth-child(even) {
+    background: #FFFFFF;
+}
