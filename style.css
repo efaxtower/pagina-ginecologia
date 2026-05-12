@@ -252,11 +252,27 @@ body {
     margin-top: 1rem;
 }
 
+/* Grid para servicios colaboradores (También ofrecemos) - VERSIÓN FORZADA */
 .servicios-colaboradores-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+    margin-top: 1rem !important;
+}
+
+/* En tablet (entre 768px y 1024px) que se vean 2 columnas */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .servicios-colaboradores-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* En móvil, 1 columna */
+@media (max-width: 768px) {
+    .servicios-colaboradores-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.8rem !important;
+    }
 }
 
 .objetivos-grid {
@@ -979,7 +995,7 @@ html { scroll-behavior: smooth; }
 .tecno-card:nth-child(3) { transition-delay: 0.5s; }
 
 /* ============================================
-   17. BOTTOM NAVIGATION (MÓVIL)
+  .17 BOTTOM NAVIGATION (MÓVIL) CON BOOTSTRAP ICONS
    ============================================ */
 .bottom-nav {
     position: fixed;
@@ -989,7 +1005,7 @@ html { scroll-behavior: smooth; }
     background: white;
     display: flex;
     justify-content: space-around;
-    padding: 8px 0 12px;
+    padding: 8px 0 10px;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
     border-top: 1px solid #FFE0E1;
@@ -1003,18 +1019,32 @@ html { scroll-behavior: smooth; }
     color: #888;
     font-size: 0.7rem;
     transition: color 0.2s;
+    gap: 4px;
 }
 
-.bottom-nav-item span:first-child {
+.bottom-nav-item i {
     font-size: 1.4rem;
-    margin-bottom: 2px;
 }
 
-.bottom-nav-item.active { color: #D81B60; }
-.bottom-nav-item:hover { color: #D81B60; }
+.bottom-nav-item.active {
+    color: #D81B60;
+}
+
+.bottom-nav-item:hover {
+    color: #D81B60;
+}
 
 @media (min-width: 769px) {
-    .bottom-nav { display: none; }
+    .bottom-nav {
+        display: none;
+    }
+}
+
+/* Ajuste para el padding inferior del body (evita que el bottom-nav tape contenido) */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 70px;
+    }
 }
 
 /* ============================================
@@ -1987,4 +2017,41 @@ footer {
 /* Fondo blanco para secciones pares */
 .section:nth-child(even) {
     background: #FFFFFF;
+}
+
+/* ============================================
+   ESPECIALIDADES DESTACADAS (CON H6)
+   ============================================ */
+.dra-especialidades-destacadas {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.dra-especialidades-destacadas h6 {
+    color: #D81B60;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.especialidades-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.especialidades-lista span {
+    background: #FFF0F5;
+    padding: 5px 12px;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    color: #D81B60;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.especialidades-lista span:hover {
+    background: #FFE0E1;
+    transform: translateY(-2px);
 }
