@@ -72,7 +72,7 @@
                         <span>✅ Tecnología médica avanzada</span>
                         <span>✅ Confidencialidad garantizada</span>
                     </div>
-                    <button class="btn-wa-card" data-nombre="Dra. Victoria Prada" style="max-width: 250px; margin-top: 1rem;">📲 Agendar cita con la Dra. Victoria</button>
+                    <button class="btn-wa-card" data-nombre="Dra. Victoria Prada" data-numero="584147219942" style="max-width: 250px; margin-top: 1rem;">📲 Agendar cita con la Dra. Victoria</button>
                 </div>
             </div>
         </div>
@@ -211,13 +211,15 @@
             }
         });
 
-        const NUMERO_WHATSAPP = '584121827436';
+        // Botones de WhatsApp: si tiene data-numero, usa ese; si no, usa el del consultorio
         document.querySelectorAll('.btn-wa-card').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const nombreEspecialista = btn.getAttribute('data-nombre');
+                const numeroPersonalizado = btn.getAttribute('data-numero');
+                const numero = numeroPersonalizado ? numeroPersonalizado : '584121827436';
                 const mensaje = `Hola, quisiera agendar una cita con ${nombreEspecialista}. ¿Podrían darme información?`;
-                window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
+                window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
             });
         });
     </script>
